@@ -7,7 +7,7 @@ int main()
 
     cout << "Enter input frame: ";
     cin >> s;
-
+    cout<<"Stuffed data:";
     int count = 0;
 
     for (int i = 0; i < s.length(); i++)
