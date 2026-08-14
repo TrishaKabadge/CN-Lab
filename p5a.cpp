@@ -73,4 +73,4 @@ int main() {
 //Input data: 1011001
 //Number of redundant bits: 4
 //Total number of bits in codeword: 11
-//Hamming code: 10100111001
+//Hamming code: 10101001110
