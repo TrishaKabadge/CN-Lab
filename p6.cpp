@@ -61,3 +61,37 @@ int main()
 
     return 0;
 }
+
+/*Enter number of frames: 6
+
+Stop and Wait ARQ
+
+Sending Frame 1...
+Frame 1 lost!
+Waiting for ACK...
+Timeout occurred.
+Retransmitting Frame 1...
+Frame 1 received successfully.
+ACK 1 received.
+
+Sending Frame 2...
+Frame 2 received successfully.
+ACK 2 received.
+
+Sending Frame 3...
+Frame 3 received successfully.
+ACK 3 received.
+
+Sending Frame 4...
+Frame 4 received successfully.
+ACK 4 received.
+
+Sending Frame 5...
+Frame 5 received successfully.
+ACK 5 received.
+
+Sending Frame 6...
+Frame 6 received successfully.
+ACK 6 received.
+
+Transmission completed successfully.*/
