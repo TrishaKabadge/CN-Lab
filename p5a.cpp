@@ -1,68 +1,114 @@
+//Sender side hamming code
+
 #include <iostream>
-#include <string>
 using namespace std;
 
-int main() {
-    string data;
+int main()
+{
+    int n;
 
-    cout << "Enter the binary data word: ";
-    cin >> data;
+    cout << "Enter no. of data bits: ";
+    cin >> n;
 
-    // Check input
-    for (char c : data) {
-        if (c != '0' && c != '1') {
-            cout << "Invalid input! Enter only 0 and 1." << endl;
-            return 0;
+    string input;
+    int data[100];
+
+    cout << "Enter data bits: ";
+    cin >> input;
+
+    // Store data bits
+    for (int i = 0; i < n; i++)
+    {
+        data[i] = input[i] - '0';
+    }
+
+    // Calculate number of redundant bits
+    int redundant = 0;
+
+    while ((1 << redundant) < (n + redundant + 1))
+    {
+        redundant++;
+    }
+
+    cout << "Number of redundant bits: " << redundant << endl;
+
+    // Display redundant bit positions
+    cout << "Redundant bit positions: ";
+
+    for (int i = 0; i < redundant; i++)
+    {
+        cout << (1 << i) << " ";
+    }
+
+    cout << endl;
+
+    int total = n + redundant;
+    int h[100] = {0};
+
+    // Insert data bits
+    // First input bit goes to highest data position
+    int j = n - 1;
+
+    for (int i = 1; i <= total; i++)
+    {
+        // Check whether position is NOT a power of 2
+        if ((i & (i - 1)) != 0)
+        {
+            h[i] = data[j];
+            j--;
         }
     }
 
-    int m = data.length();
-    int r = 0;
-
-    
-    while ((1 << r) < (m + r + 1)) {
-        r++;
-    }
-
-    int n = m + r;
-
-    int hamming[100] = {0};
-
-    int j = 0;
-
-    for (int position = n; position >= 1; position--) {
-        
-        if ((position & (position - 1)) != 0) {
-            hamming[position] = data[j] - '0';
-            j++;
-        }
-    }
-
-    
-    for (int i = 0; i < r; i++) {
-        int p = 1 << i;
+    // Calculate parity bits
+    for (int p = 0; p < redundant; p++)
+    {
+        int position = 1 << p;
         int parity = 0;
 
-        for (int position = 1; position <= n; position++) {
-            if (position & p) {
-                parity = parity ^ hamming[position];
+        for (int i = 1; i <= total; i++)
+        {
+            if (i & position)
+            {
+                parity = parity ^ h[i];
             }
         }
 
-        hamming[p] = parity;
+        h[position] = parity;
     }
 
-    
+    // Display actual redundant bits
+    cout << "Redundant bits: ";
+
+    for (int p = 0; p < redundant; p++)
+    {
+        int position = 1 << p;
+        cout << h[position] << " ";
+    }
+
     cout << endl;
-    cout << "Input data: " << data << endl;
-    cout << "Number of redundant bits: " << r << endl;
-    cout << "Total number of bits in codeword: " << n << endl;
 
-    cout << "Hamming code: ";
+    // Display positions
+    cout << "\nPosition: ";
 
-    
-    for (int position = n; position >= 1; position--) {
-        cout << hamming[position];
+    for (int i = total; i >= 1; i--)
+    {
+        cout << i << " ";
+    }
+
+    // Display codeword
+    cout << "\nCodeword: ";
+
+    for (int i = total; i >= 1; i--)
+    {
+        cout << h[i] << " ";
+    }
+
+    // Display final Hamming code
+    cout << "\n\nHamming Code: ";
+
+    for (int i = total; i >= 1; i--)
+    {
+        cout << h[i];
     }
 
     cout << endl;
@@ -70,7 +116,14 @@ int main() {
     return 0;
 }
 
-//Input data: 1011001
+//Output:
+//Enter no. of data bits: 7
+//Enter data bits: 1011001
 //Number of redundant bits: 4
-//Total number of bits in codeword: 11
-//Hamming code: 10101001110
+//Redundant bit positions: 1 2 4 8
+//Redundant bits: 0 1 1 0
+
+//Position: 11 10 9 8 7 6 5 4 3 2 1
+//Codeword: 1 0 1 0 1 0 0 1 1 1 0
+
+//Hamming Code: 10101001110
