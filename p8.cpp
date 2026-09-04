@@ -139,8 +139,8 @@ int main()
     {
         cout << "Class: A" << endl;
         cout << "Default Mask: 255.0.0.0" << endl;
-        cout << "Network ID: " << a << ".0.0.0" << endl;
-        cout << "Host ID: " << b << "." << c << "." << d << endl;
+        cout << "Network Address: " << a << ".0.0.0" << endl;
+        cout << "Host Address: " << b << "." << c << "." << d << endl;
     }
 
     // Class B
@@ -148,8 +148,8 @@ int main()
     {
         cout << "Class: B" << endl;
         cout << "Default Mask: 255.255.0.0" << endl;
-        cout << "Network ID: " << a << "." << b << ".0.0" << endl;
-        cout << "Host ID: " << c << "." << d << endl;
+        cout << "Network Address: " << a << "." << b << ".0.0" << endl;
+        cout << "Host Address: " << c << "." << d << endl;
     }
 
     // Class C
@@ -157,8 +157,8 @@ int main()
     {
         cout << "Class: C" << endl;
         cout << "Default Mask: 255.255.255.0" << endl;
-        cout << "Network ID: " << a << "." << b << "." << c << ".0" << endl;
-        cout << "Host ID: " << d << endl;
+        cout << "Network Address: " << a << "." << b << "." << c << ".0" << endl;
+        cout << "Host Address: " << d << endl;
     }
 
     // Class D
@@ -194,8 +194,8 @@ int main()
 Valid IPv4 Address
 Class: C
 Default Mask: 255.255.255.0
-Network ID: 195.78.63.0
-Host ID: 92
+Network Address: 195.78.63.0
+Host Address: 92
 
 2)Enter IPv4 Address: 56.911.25.78
 
