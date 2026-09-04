@@ -51,7 +51,7 @@ int main()
     return 0;
 }
 
-OUTPUT:
+/*
 Enter data bits: 1001000
 Enter generator bits: 1011
 Data bits      : 1001000
@@ -59,3 +59,4 @@ Generator      : 1011
 Number of zeros added : 3
 Remainder      : 001
 Codeword       : 1001000001
+*/
