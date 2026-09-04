@@ -60,10 +60,11 @@ int main()
 }
 
 
-OUTPUT:
+/*
 Enter received codeword: 1001000001
 Enter generator bits: 1011
 Received Codeword : 1001000001
 Generator         : 1011
 Remainder         : 000
 No error detected.
+*/
